@@ -1,0 +1,22 @@
+kelleyk-novnc/
+__pycache__/
+*.pyc
+*.pyo
+
+# Downloaded BMC files (contain session tokens)
+ipmi_login_page.html
+ipmi_utils.js
+ipmi_ikvm_page.html
+
+# JNLP files (contain session tokens)
+*.jnlp
+
+# Generated at runtime
+novnc/ikvm.html
+
+# IDE
+.vscode/
+.idea/
+
+# Claude project files
+.claude/
