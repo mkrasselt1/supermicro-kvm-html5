@@ -41,6 +41,7 @@ import H264Decoder from "./decoders/h264.js";
 import AtenAst2100DecoderWrapper from "./decoders/aten/atenast2100.js";
 import AtenHermonDecoder from "./decoders/aten/hermon.js";
 import XK2HID from "./input/keysym2hid.js";
+import CODE2HID from "./input/code2hid.js";
 
 // How many seconds to wait for a disconnect to finish
 const DISCONNECT_TIMEOUT = 3;
@@ -490,7 +491,7 @@ export default class RFB extends EventTargetMixin {
 
         // ATEN iKVM uses HID keycodes
         if (this._rfbAtenIKVM) {
-            const hid = XK2HID[keysym];
+            const hid = CODE2HID[code] ?? XK2HID[keysym];
             if (hid !== undefined) {
                 RFB.messages.atenKeyEvent(this._sock, hid, down);
             }
